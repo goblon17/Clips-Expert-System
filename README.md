@@ -1,7 +1,7 @@
 # Clips-Expert-System
 A project for AI course.
 
-Implementation of given guide map using Python and Clips.
+Implementation of given guide map using Python and Clips as GUI application.
 
 ![Guide map](What-Species-Did-You-Evolve-From.png "What spiecies did you evolve from")
 

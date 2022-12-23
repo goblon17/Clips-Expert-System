@@ -88,7 +88,7 @@ while True:
                 animal_name = fact.__getitem__(0)
                 window['continue_button'].Update(visible=False)
 
-                window['question_label'].Update(f'You are a: {animal_name}!')
+                window['question_label'].Update(f'You are a/an: {animal_name}!')
 
     elif event == 'reset_button':
         window['question_label'].Update('What species did you evolve from?')

@@ -17,7 +17,7 @@ Run `./main`.
 ### Using python3 (from */src*)
 Make sure you have installed all the required libraries.
 
-Run `python3 src/main.py`.
+Run `python3 main.py`.
 
 ## Libraries used
 - PySimpleGUI

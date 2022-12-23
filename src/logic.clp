@@ -451,3 +451,20 @@
     (printout t "Turtle Dove" crlf)
     (assert (finish "Turtle Dove"))
 )
+
+;//////
+;Dunno
+;//////
+
+(defrule dunno-favorite
+    (favorite dunno)
+=>
+    (assert (question "dunno;1;I don't understand this chart; It's ok. No one expects you to; dunno"))
+)
+
+(defrule dunno-dunno
+    (dunno dunno)
+=>
+    (printout t "Belgium Milk Sheep" crlf)
+    (assert (finish "Belgium Milk Sheep"))
+)

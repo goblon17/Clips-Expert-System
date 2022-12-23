@@ -10,9 +10,8 @@ Implementation of given guide map using Python and Clips.
 * Adam Jurcz 144441
 
 ## To run
-OS: Linux
 
-### Using executable file provided (from */dist*)
+### Using executable file provided (from */dist*, ONLY ON LINUX)
 Run `./main`.
 
 ### Using python3 (from */src*)

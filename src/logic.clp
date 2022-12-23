@@ -414,3 +414,40 @@
     (printout t "Giant Squid" crlf)
     (assert (finish "Giant Squid"))
 )
+
+;//////
+;Mate
+;//////
+
+(defrule mate-favorite
+    (favorite mate)
+=>
+    (assert (question "hit-n-quit;2;Hit it & quit it?;Yes;No;yes;no"))
+)
+
+(defrule hit-n-quit-yes
+    (hit-n-quit yes)
+=>
+    (printout t "Bottlenose Dolphin" crlf)
+    (assert (finish "Bottlenose Dolphin"))
+)
+
+(defrule hit-n-quit-no
+    (hit-n-quit no)
+=>
+    (assert (question "home-dad;2;Are you a stay at home dad?;Yes;No;yes;no"))
+)
+
+(defrule home-dad-yes
+    (home-dad yes)
+=>
+    (printout t "Pygmy Seahorse" crlf)
+    (assert (finish "Pygmy Seahorse"))
+)
+
+(defrule home-dad-no
+    (home-dad no)
+=>
+    (printout t "Turtle Dove" crlf)
+    (assert (finish "Turtle Dove"))
+)

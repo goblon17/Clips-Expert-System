@@ -214,3 +214,36 @@
 ;//////
 ;Sleep
 ;//////
+
+(defrule sleep-favorite
+    (favorite sleep)
+=>
+    (assert (question "graveyard;2;'cuz you work the graveyard shift?;Yes;No;yes;no"))
+)
+
+(defrule graveyard-yes
+    (graveyard yes)
+=>
+    (printout t "Brown Bat" crlf)
+    (assert (finish "Brown Bat"))
+)
+
+(defrule graveyard-no
+    (graveyard no)
+=>
+    (assert (question "cuddly;2;Are you cuddly?;My mother says I am;People other than my mother say I am;mother;other"))
+)
+
+(defrule cuddly-mother
+    (cuddly mother)
+=>
+    (printout t "Koala Bear" crlf)
+    (assert (finish "Koala Bear"))
+)
+
+(defrule cuddly-other
+    (cuddly other)
+=>
+    (printout t "Giant Armadillo" crlf)
+    (assert (finish "Giant Armadillo"))
+)

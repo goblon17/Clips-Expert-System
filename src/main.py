@@ -1,4 +1,5 @@
 import os
+import sys
 import PySimpleGUI
 import clips
 
@@ -44,7 +45,15 @@ fact_to_assert = '(start)'
 fact_name = ''
 question_facts = []
 
-environment.load(os.path.dirname(__file__) + '/logic.clp')
+if getattr(sys, 'frozen', False):
+    dirname = os.path.dirname(sys.executable)
+elif __file__:
+    dirname = os.path.dirname(__file__)
+
+if len(dirname) == 0:
+    environment.load('logic.clp')
+else:
+    environment.load(dirname + '/logic.clp')
 
 while True:
     event, values = window.read()

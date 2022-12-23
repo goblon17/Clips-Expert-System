@@ -10,6 +10,11 @@ Implementation of given guide map using Python and Clips.
 * Adam Jurcz 144441
 
 ## To run
+
+# Using executable file provided (from */dist*)
+Run `./main`.
+
+# Using python3 (from */src*)
 Make sure you have installed all the required libraries.
 
 Run `python3 src/main.py`.

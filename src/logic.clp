@@ -459,7 +459,7 @@
 (defrule dunno-favorite
     (favorite dunno)
 =>
-    (assert (question "dunno;1;I don't understand this chart; It's ok. No one expects you to; dunno"))
+    (assert (question "dunno;1;I don't understand this chart;It's ok. No one expects you to; dunno"))
 )
 
 (defrule dunno-dunno
@@ -467,4 +467,146 @@
 =>
     (printout t "Belgium Milk Sheep" crlf)
     (assert (finish "Belgium Milk Sheep"))
+)
+
+;//////
+;Run
+;//////
+
+(defrule run-favorite
+    (favorite run)
+=>
+    (assert (question "speed;3;How fast?;Kidding... I walk.;So fast I fly;I'm pretty quick;walk;fly;quick"))
+)
+
+;//////
+;Run->walk
+;//////
+
+(defrule speed-walk
+    (speed walk)
+=>
+    (assert (question "haste;2;With haste?;Yes;No;yes;no"))
+)
+
+(defrule haste-no
+    (haste no)
+=>
+    (printout t "Galapagos Tortoise" crlf)
+    (assert (finish "Galapagos Tortoise"))
+)
+
+(defrule haste-yes
+    (haste yes)
+=>
+    (assert (question "posture;2;How's your posture?;Bloody good, mate;Quasimodo;good;quasimodo"))
+)
+
+(defrule posture-good
+    (posture-good)
+=>
+    (printout t "Antilopine Kangaroo" crlf)
+    (assert (finish "Antilopine Kangaroo"))
+)
+
+(defrule posture-quasimodo
+    (posture-quasimodo)
+=>
+    (printout t "Silverback Gorilla" crlf)
+    (assert (finish "Silverback Gorilla"))
+)
+
+;//////
+;Run->fly
+;//////
+
+(defrule speed-fly
+    (speed fly)
+=>
+    (assert (question "literally;2;Literally?;Yes;No;yes;no"))
+)
+
+(defrule literally-yes
+    (literally yes)
+=>
+    (printout t "Peregrine Falcon" crlf)
+    (assert (finish "Peregrine Falcon"))
+)
+
+(defrule literally-no
+    (literally no)
+=>
+    (assert (question "how-so;2;How so, then?;In my dreams;Metaphorically;dreams;metaphore"))
+)
+
+(defrule how-so-dreams
+    (how-so dreams)
+=>
+    (printout t "Tanzania Ostrich" crlf)
+    (assert (finish "Tanzania Ostrich"))
+)
+
+(defrule how-so-metaphore
+    (how-so metaphore)
+=>
+    (printout t "Cheetah" crlf)
+    (assert (finish "Cheetah"))
+)
+
+;//////
+;Run->quick
+;//////
+
+(defrule speed-quick
+    (speed quick)
+=>
+    (assert (question "indoors;2;Mostly indoors?;Yes;No;yes;no"))
+)
+
+;//////
+;Run->quick->yes
+;//////
+
+(defrule indoors-yes
+    (indoors yes)
+=>
+    (assert (question "house;2;Do you own, or rent?;I'm in between floors at the moment;If I pee on it, I own it, right?;between;pee"))
+)
+
+(defrule house-between
+    (house between)
+=>
+    (printout t "Cockroach" crlf)
+    (assert (finish "Cockroach"))
+)
+
+(defrule house-pee
+    (house pee)
+=>
+    (printout t "Miniature Schnauzer" crlf)
+    (assert (finish "Miniature Schnauzer"))
+)
+
+;//////
+;Run->quick->no
+;//////
+
+(defrule indoors-no
+    (indoors no)
+=>
+    (assert (question "ipod;2;What's on your IPod?;\"My Old Kentucky Home\";\"Hakuna Matata\";kentucky;hakuna"))
+)
+
+(defrule ipod-kentucky
+    (ipod kentucky)
+=>
+    (printout t "Quarterhorse" crlf)
+    (assert (finish "Quarterhorse"))
+)
+
+(defrule ipod-hakuna
+    (ipod hakuna)
+=>
+    (printout t "African Lion" crlf)
+    (assert (finish "African Lion"))
 )

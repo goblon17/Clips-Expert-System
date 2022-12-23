@@ -247,3 +247,170 @@
     (printout t "Giant Armadillo" crlf)
     (assert (finish "Giant Armadillo"))
 )
+
+;//////
+;Swim
+;//////
+
+(defrule swim-favorite
+    (favorite swim)
+=>
+    (assert (question "where;4;Where?;The sand;In the shallows;The deep blue sea;No, the DEEP blue sea;sand;shallows;sea;deep-sea"))
+)
+
+(defrule where-sand
+    (where sand)
+=>
+    (printout t "Desert Monitor" crlf)
+    (assert (finish "Desert Monitor"))
+)
+
+;//////
+;Swim->shallows
+;//////
+
+(defrule where-shallows
+    (where shallows)
+=>
+    (assert (question "shallows;3;In the shallows...;Sidewalk puddles;Ponds & lakes;Rivers & streams;puddles;ponds;rivers"))
+)
+
+;//////
+;Swim->shallows->puddles
+;//////
+
+(defrule shallows-puddles
+    (shallows puddles)
+=>
+    (assert (question "fries;2;Do you eat french fries?;Yes, and pretzels;No;yes;no"))
+)
+
+(defrule fries-yes
+    (fries yes)
+=>
+    (printout t "Feral Pigeon" crlf)
+    (assert (finish "Feral Pigeon"))
+)
+
+(defrule fries-no
+    (fries no)
+=>
+    (printout t "Probably Algae" crlf)
+    (assert (finish "Probably Algae"))
+)
+
+;//////
+;Swim->shallows->ponds
+;//////
+
+(defrule shallows-ponds
+    (shallows ponds)
+=>
+    (assert (question "buoyancy;2;How's your buoyancy?;I couldn't sink if I tried;I sink like a rock;swim;sink"))
+)
+
+(defrule buoyancy-swim
+    (buoyancy swim)
+=>
+    (printout t "Lesser Snow Goose" crlf)
+    (assert (finish "Lesser Snow Goose"))
+)
+
+(defrule buoyancy-sink
+    (buoyancy sink)
+=>
+    (printout t "Thick Shelled River Mussel" crlf)
+    (assert (finish "Thick Shelled River Mussel"))
+)
+
+
+;//////
+;Swim->shallows->rivers
+;//////
+
+(defrule shallows-rivers
+    (shallows rivers)
+=>
+    (assert (question "recreationally;2;Recreationally?;I like to goof around;I can be pretty intense;goof;intense"))
+)
+
+(defrule recreationally-goof
+    (recreationally goof)
+=>
+    (printout t "Eurasion River Otter" crlf)
+    (assert (finish "Eurasion River Otter"))
+)
+
+(defrule recreationally-intense
+    (recreationally intense)
+=>
+    (printout t "Red Pirhana" crlf)
+    (assert (finish "Red Pirhana"))
+)
+
+;//////
+;Swim->sea
+;//////
+
+(defrule shallows-sea
+    (shallows sea)
+=>
+    (assert (question "alone;2;Alone?;Yes;No;yes;no"))
+)
+
+;//////
+;Swim->sea->yes
+;//////
+
+(defrule alone-yes
+    (alone yes)
+=>
+    (assert (question "why-alone;2;Bummer. Why?;Because I'm mean;Because I feel... invisible;mean;invisible"))
+)
+
+(defrule why-alone-mean
+    (why-alone mean)
+=>
+    (printout t "Bull Shark" crlf)
+    (assert (finish "Bull Shark"))
+)
+
+(defrule why-alone-invisible
+    (why-alone invisible)
+=>
+    (printout t "Transparent Jellyfish" crlf)
+    (assert (finish "Transparent Jellyfish"))
+)
+
+;//////
+;Swim->deep-sea
+;//////
+
+(defrule where-deep-sea
+    (where deep-sea)
+=>
+    (assert (question "scary;2;Are you scary?;Yes;No;yes;no"))
+)
+
+(defrule scary-yes-no
+    (or
+        (scary yes)
+        (scary no)
+    )
+=>
+    (assert (question "more-of;2;Which do you have more of?;Teeth;Appendages;teeth;appendages"))
+)
+
+(defrule more-of-teeth
+    (more-of teeth)
+=>
+    (printout t "Viperfish" crlf)
+    (assert (finish "Viperfish"))
+)
+
+(defrule more-of-appendages
+    (more-of appendages)
+=>
+    (printout t "Giant Squid" crlf)
+    (assert (finish "Giant Squid"))
+)
